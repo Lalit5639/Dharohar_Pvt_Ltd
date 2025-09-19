@@ -1,0 +1,175 @@
+    .carousel-item {
+      height: 100vh; /* Full screen height */
+      min-height: 500px;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Overlay */
+    .carousel-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* Black overlay */
+      z-index: 1;
+    }
+
+    /* Center content */
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+
+    .carousel-caption h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .carousel-caption p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+  
+.project-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .project-card img {
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover img {
+    transform: scale(1.1);
+  }
+  .project-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+    text-align: center;
+  }
+  .project-card:hover .overlay {
+    opacity: 1;
+  }
+  /* Stagger effect */
+  .align-self-start {
+    margin-top: -30px;
+  }
+  .align-self-end {
+    margin-top: 30px;
+  }
+
+  :root {
+      --bg: #0f172a;          /* slate-900 */
+      --panel: #111827cc;     /* gray-900 (with alpha) */
+      --text: #e5e7eb;        /* gray-200 */
+      --accent: #22d3ee;      /* cyan-400 */
+      --muted: #94a3b8;       /* slate-400 */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+      background: radial-gradient(1200px 600px at 50% -100px, #00000080, transparent), var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    header {
+      padding: 14px 18px;
+      display: grid;
+      gap: 10px;
+      background: linear-gradient(180deg, #0b1220cc, #0b122000);
+      border-bottom: 1px solid #1f2937;
+    }
+    header .row {
+      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+    }
+    h1 {
+      font-size: 18px; margin: 0; letter-spacing: .3px; font-weight: 700;
+    }
+    .badge { color: var(--muted); font-size: 12px; }
+    .controls, .loader {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    input[type="text"] {
+      flex: 1 1 360px;
+      background: #0b1220; color: var(--text);
+      border: 1px solid #1f2937; border-radius: 10px; padding: 10px 12px;
+      outline: none;
+    }
+    input[type="file"] { display: none; }
+    .btn, label[for="pdfFile"] {
+      appearance: none; border: 1px solid #1f2937; color: var(--text);
+      background: #0b1220; padding: 10px 12px; border-radius: 10px;
+      cursor: pointer; transition: transform .06s ease, border-color .2s;
+      user-select: none;
+    }
+    .btn:hover, label[for="pdfFile"]:hover { border-color: #334155; }
+    .btn:active, label[for="pdfFile"]:active { transform: translateY(1px); }
+    .btn.primary { background: #0b1220; border-color: #000000; color: var(--accent); }
+    .btn.ghost { background: transparent; }
+    .stats { color: var(--muted); font-size: 13px; }
+    main {
+      display: grid; place-items: center; padding: 18px;
+    }
+    .stage {
+      width: min(96vw, 1200px);
+      height: min(80vh, 900px);
+      background: #000000; border: 1px solid #000000; border-radius: 16px;
+      box-shadow: 0 20px 60px #00000088, inset 0 0 0 1px #00000055;
+      position: relative; overflow: hidden;
+      display: grid; place-items: center;
+    }
+    .placeholder {
+      text-align: center; max-width: 520px; padding: 18px; color: var(--muted);
+    }
+    .placeholder h2 { color: var(--text); margin-top: 0; }
+    .book {
+      width: 100%; height: 100%;
+    }
+    .hidden { display: none !important; }
+    footer {
+      padding: 10px 18px; display: flex; align-items: center; gap: 10px; color: var(--muted);
+      border-top: 1px solid #1f2937;
+    }
+    .sep { opacity: .3; }
+    .progressbar {
+      height: 4px; width: 100%; background: #111827; border-radius: 999px; overflow: hidden;
+      box-shadow: inset 0 0 0 1px #0b1220;
+    }
+    .progressbar > div {
+      height: 100%; width: 0%; background: linear-gradient(90deg, #22d3ee, #60a5fa);
+      transition: width .2s ease;
+    }
+    .page-controls {
+      position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; background: #0b1220cc; padding: 6px 8px; border-radius: 999px;
+      border: 1px solid #1f2937; backdrop-filter: blur(6px);
+    }
+    .page-controls .btn {
+      padding: 6px 10px; font-size: 14px;
+    }
+    .pageno {
+      min-width: 88px; text-align: center; color: var(--muted); font-size: 13px; padding: 6px 10px;
+    }
+    .credit { margin-left: auto; }
+    @media (max-width: 720px) {
+      .stage { height: 72vh; }
+    }
